@@ -76,6 +76,8 @@ class Roulette extends Component {
     const { currentImage } = this.state
     return (
       <div className='roulette'>
+        <a className='instagram' href="https://www.instagram.com/wolko1/" target='_blank' />
+        <div className='w1' />
         <img src={currentImage} />
       </div>
     )

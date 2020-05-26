@@ -1,5 +1,20 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  border: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:focus {
+      outline: none;
+  }
 }
 
 :root {
@@ -8,17 +23,80 @@
 
 body {
   margin: 0;
+  background: #EC5B2F;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.instagram {
+  position: fixed;
+  top: 1.6rem;
+  right: 1.2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: url(../img/ig.svg) center no-repeat;
+  background-size: contain;
+}
+
+.w1 {
+  position: fixed;
+  top: 1.6rem;
+  left: 1.2rem;
+  width: 4.8rem;
+  height: 3rem;
+  background: url(../img/w1.svg) center no-repeat;
+  background-size: contain;
 }
 
 .start-screen {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  color: #FFF;
+
+  h1 {
+    font-size: 5.2rem;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 1.3rem;
+
+    &.monospace {
+      font-family: monospace;
+    }
+  }
+
+  .hole {
+    width: 24rem;
+    height: 9rem;
+    background: url(../img/hole.png) center no-repeat;
+    background-size: contain;
+    margin: 10rem 0;
+  }
+  .arrow {
+    width: 1.8rem;
+    height: 1.8rem;
+    background: url(../img/arrow.svg) center no-repeat;
+    background-size: contain;
+  }
 
   .click-element {
-    font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.2rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    border: 1px solid #FFF;
     font-size: 3rem;
     cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+      background: rgba($color: #FFF, $alpha: 0.1);
+    }
   }
 }
