@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './Roulette.scss'
-import image1 from '../img/01.jpg'
-import image2 from '../img/02.jpg'
-import image3 from '../img/03.jpg'
-import image4 from '../img/04.jpg'
-import image5 from '../img/05.jpg'
-import image6 from '../img/06.jpg'
-import image7 from '../img/07.jpg'
-import image8 from '../img/08.jpg'
-import image9 from '../img/09.jpg'
-import image10 from '../img/10.jpg'
+import fs from 'fs'
+
+const image1 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/01.jpg', { encoding: 'base64' })
+const image2 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/02.jpg', { encoding: 'base64' })
+const image3 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/03.jpg', { encoding: 'base64' })
+const image4 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/04.jpg', { encoding: 'base64' })
+const image5 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/05.jpg', { encoding: 'base64' })
+const image6 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/06.jpg', { encoding: 'base64' })
+const image7 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/07.jpg', { encoding: 'base64' })
+const image8 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/08.jpg', { encoding: 'base64' })
+const image9 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/09.jpg', { encoding: 'base64' })
+const image10 = 'data:image/jpg;base64,' + fs.readFileSync(__dirname + '/../img/10.jpg', { encoding: 'base64' })
 
 const IMG_ROTATION_INTERVAL_MS = 100
 
