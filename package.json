@@ -1,0 +1,24 @@
+{
+  "name": "random-image-roulette",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "docker-start": "rm -rf dist && parcel build src/index.html && docker-compose up --build -d",
+    "docker-stop": "docker-compose down"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel": "^1.12.4",
+    "sass": "^1.26.5",
+    "scss": "^0.2.4"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
