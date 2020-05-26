@@ -5,3 +5,20 @@
 :root {
   font-size: 10px;
 }
+
+body {
+  margin: 0;
+}
+
+.start-screen {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  .click-element {
+    font-family: monospace;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}
