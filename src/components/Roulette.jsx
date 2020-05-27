@@ -177,8 +177,19 @@ class Roulette extends Component {
       image83,
     ]
 
+    this._questionsArray = [
+      'Estamos locos, Lucas?',
+      'Si los gatos arañan, las arañas gatean?',
+      'Y si uno va a China, en los juguetes dice "Hecho aquí"?',
+      'Si el rey se tira un pedo, es un gas noble?',
+      'Si los zombies llegan a tu casa, Zombienvenidos?',
+      'Un terapeuta son 1024 gigapeutas?'
+    ]
+
     this.state = {
-      currentImage: this._imageSrcArray[0]
+      running: true,
+      currentImage: this._imageSrcArray[0],
+      currentQuestion: null
     }
   }
 
@@ -197,6 +208,9 @@ class Roulette extends Component {
       this.setRandomImage.bind(this),
       IMG_ROTATION_INTERVAL_MS
     )
+    this.setState({
+      running: true
+    })
   }
 
   setRandomImage () {
@@ -207,21 +221,33 @@ class Roulette extends Component {
     })
   }
 
+  setRandomQuestion () {
+    const newIndex = Math.floor(Math.random() * this._questionsArray.length)
+    const currentQuestion = this._questionsArray[newIndex]
+    this.setState({
+      currentQuestion
+    })
+  }
+
   toggleInterval () {
     if (this._changeImageInterval) {
       clearInterval(this._changeImageInterval)
       this._changeImageInterval = null
+      this.setState({
+        running: false
+      }, this.setRandomQuestion.bind(this))
     } else {
       this.setupInterval()
     }
   }
 
   render () {
-    const { currentImage } = this.state
+    const { currentImage, running, currentQuestion } = this.state
     return (
       <div className='roulette'>
         <div className='btn' onClick={this.toggleInterval.bind(this)}><span /></div>
         <img src={currentImage} onClick={this.toggleInterval.bind(this)} />
+        {!running && <div className='question'>{currentQuestion}</div>}
       </div>
     )
   }
