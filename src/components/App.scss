@@ -23,7 +23,6 @@
 
 body {
   margin: 0;
-  background: #EC5B2F;
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -31,14 +30,26 @@ body {
   width: 100%;
 }
 
-.instagram {
+.instagram,
+.instagram-orange {
   position: fixed;
   top: 1.6rem;
   right: 1.2rem;
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   background: url(../img/ig.svg) center no-repeat;
   background-size: contain;
+  animation: fadeDown 0.4s ease-in-out;
+  animation-iteration-count: 1;
+  -moz-animation-delay: .5s;
+}
+
+.instagram {
+  background: url(../img/ig.svg) center no-repeat;
+}
+
+.instagram-orange {
+  background: url(../img/ig-orange.svg) center no-repeat;
 }
 
 .w1 {
@@ -49,36 +60,55 @@ body {
   height: 3rem;
   background: url(../img/w1.svg) center no-repeat;
   background-size: contain;
+  cursor: pointer;
+  animation: fadeDown 0.4s ease-in-out;
+  animation-iteration-count: 1;
+  -moz-animation-delay: 1s;
 }
 
-.start-screen {
+.container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  align-items: center;
   color: #FFF;
+  padding: 1.6rem;
+  transition: background .3s ease;
+
+  &.orange-bg {
+    background: #EC5B2F;
+  }
+
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .title {
+   text-align: center;
+  }
 
   h1 {
     font-size: 5.2rem;
     margin-bottom: 8px;
+    animation: fadeDown 0.4s ease-in-out;
+    animation-iteration-count: 1;
+    -moz-animation-delay: 1s;
   }
 
   p {
     font-size: 1.3rem;
+    animation: fadeDown 0.4s ease-in-out;
+    animation-iteration-count: 1;
 
     &.monospace {
       font-family: monospace;
     }
   }
 
-  .hole {
-    width: 24rem;
-    height: 9rem;
-    background: url(../img/hole.png) center no-repeat;
-    background-size: contain;
-    margin: 10rem 0;
-  }
   .arrow {
     width: 1.8rem;
     height: 1.8rem;
@@ -90,17 +120,159 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 3.2rem;
-    width: 4.4rem;
-    height: 4.4rem;
-    border-radius: 50%;
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.6rem;
     border: 1px solid #FFF;
-    font-size: 3rem;
+    font-size: 1.4rem;
+    transition: background .3s ease;
     cursor: pointer;
-    transition: all .3s ease;
+    animation: fadeUp 0.4s ease-in-out;
+    animation-iteration-count: 1;
+    -moz-animation-delay: 1s;
 
     &:hover {
       background: rgba($color: #FFF, $alpha: 0.1);
     }
+  }
+}
+
+.hole-container {
+    position: relative;
+    width: 24rem;
+    height: 9rem;
+    margin: 8rem 0;
+    border-bottom-left-radius: 80% 15%;
+    border-bottom-right-radius: 80% 15%;
+    overflow: hidden;
+
+    .ear {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1.2rem;
+      position: absolute;
+      bottom: 0;
+      width: 4.4rem;
+      height: 8.4rem;
+      background: #FFF;
+      border-top-left-radius: 0.6rem;
+      border-top-right-radius: 0.6rem;
+      z-index: 1;
+      animation: rabbitEar 1.0s ease-in-out;
+      animation-iteration-count: 1;
+      -moz-animation-delay: 1s;
+
+      &.ear-left {
+        left: 5rem;
+      }
+
+      &.ear-right {
+        right: 5rem;
+      }
+
+      .ear-line {
+        width: 0.2rem;
+        height: 100%;
+        background: #69298A;
+      }
+    }
+
+    .hole {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2.8rem;
+      background: #000;
+      border-radius: 50%;
+      animation: rabbitHole .4s ease-in-out;
+      animation-iteration-count: 1;
+    }
+}
+
+.footer {
+  color: #000;
+  opacity: 0.6;
+  animation: fadeUp 0.4s ease-in-out;
+  animation-iteration-count: 1;
+  -moz-animation-delay: 1s;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p, a {
+      text-align: center;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+
+    span:last-child {
+      margin-top: 0.1rem;
+    }
+
+    .github-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 0.4rem;
+      background: url(../img/github.png) center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+@keyframes rabbitEar {
+  0% {
+    bottom: -20rem;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes rabbitHole {
+  0% {
+    left: 12rem;
+    right: 12rem;
+    height: 0;
+  }
+  100% {
+    left: 0;
+    right: 0;
+    height: 2.8rem;
   }
 }
